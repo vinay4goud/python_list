@@ -1,0 +1,54 @@
+'''
+
+list  is  a collection data types in python and changeable
+
+'''
+
+a =["apple", "banana", "cherry"]
+
+print (a)
+
+# how to access or print each value in list
+
+
+print ( a[1])
+
+# how to change exsisting value in list
+
+a[1] = "blackberry" #here new value is  assigned with old value  it replace with old one
+
+print(a)
+
+# length of the list
+
+print (len(a))
+
+#  add new value to string
+
+a.append("orange ")
+print (a)
+
+
+
+# add item   in specified index
+
+a.insert(1,"orange")
+print (a)
+
+# remove item
+
+a.remove("orange")
+print (a)
+
+# pop() is used to remove specified index
+
+a.pop(0)
+print(a)
+
+
+# reverse the order
+
+a.reverse()
+print(a)
+
+
