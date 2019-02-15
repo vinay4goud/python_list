@@ -11,9 +11,11 @@ class family:
                
         print ('names : '+ self.name)
         print ('gender : '+ self.gender)
-        print ('fid : '+ self.fid)
-        print ('mid : '+ self.mid)
-        print ('nid : '+ self.nid)
+        print ('father : '+ self.fid)
+        print ('mother : '+ self.mid)
+        print ('name id : '+ self.nid)
+
+    
 
 p1 = { 8: {'name':'mahankali', 'gender':'male', 'fid':'none','mid':'none','id':8},
            9: {'name':'maha', 'gender':'female', 'fid':'none','mid':'none','id':9},
