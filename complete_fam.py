@@ -14,6 +14,11 @@ class family:
         print ('father : '+ self.fid)
         print ('mother : '+ self.mid)
         print ('name id : '+ self.nid)
+        print ('brother : ')
+        print ('aunt : ')
+        print ('auncle : ')
+        print ('grand father : ')
+        print ('grand mother : ')
 
     
 
