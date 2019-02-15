@@ -8,10 +8,12 @@ class family:
         self.nid = nid
     
     def a(self):
-        self.name =c
-        c = p1.get(8).get('name')
-        
-        print ('names'+ self.name)
+               
+        print ('names : '+ self.name)
+        print ('gender : '+ self.gender)
+        print ('fid : '+ self.fid)
+        print ('mid : '+ self.mid)
+        print ('nid : '+ self.nid)
 
 p1 = { 8: {'name':'mahankali', 'gender':'male', 'fid':'none','mid':'none','id':8},
            9: {'name':'maha', 'gender':'female', 'fid':'none','mid':'none','id':9},
@@ -22,8 +24,8 @@ p1 = { 8: {'name':'mahankali', 'gender':'male', 'fid':'none','mid':'none','id':8
            3: {'name':'vinay', 'gender':'male', 'fid':1,'mid':2,'id':3},
            4: {'name':'navin', 'gender':'male', 'fid':1,'mid':2,'id':4}
        }
-b = family(p1)
+
+b = family (p1.get(1).get('name'), p1.get(1).get('gender'),str(p1.get(1).get('fid')),str(p1.get(1).get('mid')),str(p1.get(1).get('id')))
+
+
 b.a()
-
-
-#print (c.get('name'))
