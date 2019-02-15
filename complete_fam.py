@@ -24,8 +24,10 @@ p1 = { 8: {'name':'mahankali', 'gender':'male', 'fid':'none','mid':'none','id':8
            3: {'name':'vinay', 'gender':'male', 'fid':1,'mid':2,'id':3},
            4: {'name':'navin', 'gender':'male', 'fid':1,'mid':2,'id':4}
        }
+y = int(input('enter id : '))
 
-b = family (p1.get(1).get('name'), p1.get(1).get('gender'),str(p1.get(1).get('fid')),str(p1.get(1).get('mid')),str(p1.get(1).get('id')))
+
+b = family (p1.get(y).get('name'), p1.get(y).get('gender'),str(p1.get(y).get('fid')),str(p1.get(y).get('mid')),str(p1.get(y).get('id')))
 
 
 b.a()
