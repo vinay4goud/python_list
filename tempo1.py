@@ -85,12 +85,10 @@ class Me:
         if fid !='none':
             for i in p1:
                 if i != self.id:
-                    if p1.get(i).get('fid','na') == fid:
-
-
-
-
+                    while p1.get(i).get('fid','na') == fid:
+                        i += 1
                         return p1.get(i).get('name','na')
+
 
 
     def sister_name(self):
@@ -103,7 +101,7 @@ class Me:
             for i in p1:
                 if i != self.id:
                     if p1.get(i).get('fid', 'na') == fid and p1.get(i).get('gender', 'na')== 'female':
-                        break
+
                         return p1.get(i).get('name', 'na')
 
     def aunt_name(self):
@@ -124,10 +122,10 @@ class Me:
         if gf!='none':
             for  i in p1:
                 if p1.get(i).get('fid','na') == gf and  p1.get(i).get('gender','na')== 'female':
-                    break
 
 
-            return p1.get(i).get('name','na')
+
+                    return p1.get(i).get('name','na')
 
     def number_brothers(self):
 
@@ -138,18 +136,12 @@ class Me:
 
         fid = self.profile().get('fid', 'na')
 
-        if fid!='none':
-            i=1
-            #while i in p1:
-            #   if p1.get(i).get('fid')==fid:
-            #i+=0
-            #return i
 
 
 
 
 
-obj = Me(7)
+obj = Me(9)
 name = obj.get_name()
 father = obj.father_name()
 mother = obj.mother_name()
@@ -164,7 +156,7 @@ print (f'father : {father}')
 print (f'mother : {mother}')
 print (f'grand  father : {grandfather}')
 print (f'grand  mother : {grandmother}')
-print (f'brother : {brother}')
+print (f'brother : {brother} {brother}  ')
 print (f'sister : {sister}')
 #print (f'no of sibilings {sibiling} ')
 print (f'aunt : {aunt}')
