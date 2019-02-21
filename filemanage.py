@@ -11,70 +11,72 @@ problem statement :
 """
 
 class files:
-    def my_function():
-        f = open("testing.txt", "r")
+
+
+
+    def __init__(self,  file ):
+        self.file=file
+
+    def my_function(self):
+        f = open(self.file, "r")
         print(f.read())  # reading complete file
         f.close()
-    def my_fun():
-        f = open("testing.txt", "r")
+    def my_fun(self):
+        f = open(self.file, "r")
         print(f.read(5))  # read (5) it read onl 5 charecters of the file
         f.close()
 
-    def my_fun1():
-        f = open("testing.txt", "r")
+    def my_fun1(self):
+        f = open(self.file, "r")
         print(f.readline())     # it reads fist line of the file
         f.close()
 
-    def my_fun2():
-        f = open("testing.txt", "a")  # a is append it is used to add the text to exsisted file
+    def my_fun2(self):
+        f = open(self.file, "a")  # a is append it is used to add the text to exsisted file
         f.write("\n Now the file has one more line!")
         f.close()
-        e = open("testing.txt", "r")
+        e = open(self.file, "r")
         print(e.read())
         e.close()
 
-    def my_fun3():
-        f = open("testfile.txt", "w")  # writes info in a  new file , if it is  already exsisred file it over writes file
+    def my_fun3(self):
+        f = open(self.file, "w")  # writes info in a  new file , if it is  already exsisred file it over writes file
         f.write("Woops! I have deleted the content!")
         f.close()
-        e = open("testfile.txt", "r")
+        e = open(self.file, "r")
         print(e.read())
         e.close()
 
-    def my_fun4():
-        f = open("testfile.txt","r+")  # r+ used to read as wellas write file
+    def my_fun4(self):
+        f = open(self.file,"r+")  # r+ used to read as wellas write file
 
         print(f.read())  # file is reading
         f.write("Woopsdddddddddd! I have deleted the content!") # writing  file
         f.close()
 
-    def my_fun5():
-        f = open("testfile.txt", "w+")  # w+ used to read as wellas write file
+    def my_fun5(self):
+        f = open(self.file, "w+")  # w+ used to read as wellas write file
         print(f.read()) # file is reading
         f.write("Woopsd vinay! I have deleted the content!")  # writing  file
 
         f.close()
 
-    def my_fun6():
-        f = open("testfile.txt", "r+b")  # w+ used to read as wellas write file
+    def my_fun6(self):
+        f = open(self.file, "r+b")  # w+ used to read as wellas write file
         print(f.read())  # file is reading
         #f.write("Woopsd vinay! I have deleted the content!")  # writing  file
 
         f.close()
 
-    def my_fun7():
-        f=open("testfile.txt", "a+") # append and read the information from  file
-        f.append("\n  wonder of the world  ")
-        print (f.read())
-        f.close()
 
 
-files.my_function()
-files.my_fun()
-files.my_fun1()
-files.my_fun2()
-files.my_fun3()
-files.my_fun4()
-files.my_fun5()
-files.my_fun6()
-files.my_fun7()
+obj = files("testing.txt")
+print(obj.my_function())
+print(obj.my_fun1())
+print(obj.my_fun2())
+print(obj.my_fun3())
+print(obj.my_fun4())
+print(obj.my_fun5())
+print(obj.my_fun6())
+
+
