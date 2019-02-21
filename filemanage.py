@@ -12,8 +12,6 @@ problem statement :
 
 class files:
 
-
-
     def __init__(self,  file ):
         self.file=file
 
@@ -76,6 +74,14 @@ class files:
                 print(line)
 
 
+    def  my_fun8(self):
+        f = open(self.file, "r")
+        l =list(f)
+        print(l)  # reading complete file
+        f.close()
+
+
+
 
 obj = files("testing.txt")
 d = files("large.txt")
@@ -87,5 +93,6 @@ print(obj.my_fun4())
 print(obj.my_fun5())
 print(obj.my_fun6())
 print(d.my_fun7())
+print(obj.my_fun8())
 
 
