@@ -1,3 +1,10 @@
+"""
+creating a relationship using  data  like father mothe r etc and also creating ralationship with other file data using  moodules
+
+"""
+
+
+import tempo2
 
 p1 = {1: {'name':'mahankali', 'gender':'male', 'fid':'none','mid':'none','id':1},
            2: {'name':'maha', 'gender':'female', 'fid':'none','mid':'none','id':2},
@@ -82,12 +89,15 @@ class Me:
         :return:
         """
         fid = self.profile().get('fid','na')
+
+        l =[]
         if fid !='none':
             for i in p1:
-                if i != self.id:
-                    while p1.get(i).get('fid','na') == fid:
-                        i += 1
-                        return p1.get(i).get('name','na')
+                if i != self.id and p1.get(i).get('fid','na') == fid:
+
+                     l . append(p1.get(i).get('name','na'))
+            return( f'number of brothers  {len(l)}  they  are {l} ')
+
 
 
 
@@ -127,21 +137,71 @@ class Me:
 
                     return p1.get(i).get('name','na')
 
-    def number_brothers(self):
+    def childrens(self):
 
         """
-        we are  counting the  numeber of brothers  does this person had
-        :return:
+        any of the id's fid is equal to passed he becomes father
+        :return: childrens
         """
 
-        fid = self.profile().get('fid', 'na')
+        l = []
+
+        for i in p1:
+            if p1.get(i).get('fid', 'na') == self.id:
+                l.append(p1.get(i).get('name', 'na'))
+        return (f'number of childrens  {len(l)}  they  are {l} ')
+
+
+
+    def grand_children(self):
+        """
+                any of the person son and his son beomes grand son
+                :return: childrens
+         """
+        
+        l = []
+        for i in p1:
+            if p1.get(i).get('fid', 'none')==self.id:
+                for a in p1:
+                    if p1.get(a).get('fid', 'none') == i:
+                        l.append(p1.get(a).get("name", "na"))
+                return(f'grand children {len(l)} they are {l}')
+
+    def uncle(self):
+        mid = self.profile().get('mid', 'na')
+
+        k = tempo2.p2.get(mid,{}).get('fid')
+        l = []
+        for i in tempo2.p2:
+            if  tempo2.p2.get(i).get('fid') == k and tempo2.p2.get(i).get('gender','na')== 'male':
+                l.append(tempo2.p2.get(i).get("name"))
+        return(f'uncle  {len(l)} they are {l}')
+
+        #if mid!='none':
+         #   gf = tempo2.p2.get(mid,{}).get('fid','na')
+        #else :
+         #   gf ='none'
+
+        #if gf!='none':
+         #   for  i in tempo2.p2:
+          #      if tempo2.p2.get(i).get('fid','na') == gf and  tempo2.p2.get(i).get('gender','na')== 'male':
+#
+ #                   return tempo2.p2.get(i).get('name','na')
 
 
 
 
 
 
-obj = Me(9)
+
+
+
+
+
+
+
+
+obj = Me(1)
 name = obj.get_name()
 father = obj.father_name()
 mother = obj.mother_name()
@@ -149,17 +209,24 @@ grandfather = obj.grandfather_name()
 grandmother = obj.grandmother_name()
 brother = obj.brother_name()
 sister = obj.sister_name()
-#sibiling = obj.number_brothers()
 aunt = obj.aunt_name()
+childrens = obj.childrens()
+grand_children = obj.grand_children()
+uncle = obj.uncle()
+
 print(f'name : {name}')
 print (f'father : {father}')
 print (f'mother : {mother}')
 print (f'grand  father : {grandfather}')
 print (f'grand  mother : {grandmother}')
-print (f'brother : {brother} {brother}  ')
+print (f'brother : {brother}  ')
 print (f'sister : {sister}')
-#print (f'no of sibilings {sibiling} ')
 print (f'aunt : {aunt}')
+print (f'childrens : {childrens}')
+print (f'grand childrens :{grand_children}')
+print (f'uncle : {uncle}')
+
+
 
 
 
