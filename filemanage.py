@@ -68,9 +68,17 @@ class files:
 
         f.close()
 
+    def my_fun7(self):
+        with open(self.file) as f:  # closes file after all the lines have been processed
+
+            for line in f:  # not using readlines(), as this consumes the memory
+
+                print(line)
+
 
 
 obj = files("testing.txt")
+d = files("large.txt")
 print(obj.my_function())
 print(obj.my_fun1())
 print(obj.my_fun2())
@@ -78,5 +86,6 @@ print(obj.my_fun3())
 print(obj.my_fun4())
 print(obj.my_fun5())
 print(obj.my_fun6())
+print(d.my_fun7())
 
 
