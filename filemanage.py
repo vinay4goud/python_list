@@ -1,10 +1,10 @@
 """
 problem statement :
-       1) how many types os modes there and example
-       2) write a program using class  read, rite and  append a  file
+       1) how many types of modes there and example
+       2) write a program using class  read, write and  append a  file
        3) how to optiize reading file
        4) read  2gb file from ram  of  1gb
-       5) hoe many method function files
+       5) 2 modes function files
        6) what is  r+
 
 
@@ -62,6 +62,12 @@ class files:
 
         f.close()
 
+    def my_fun7():
+        f=open("testfile.txt", "a+") # append and read the information from  file
+        f.append("\n  wonder of the world  ")
+        print (f.read())
+        f.close()
+
 
 files.my_function()
 files.my_fun()
@@ -71,3 +77,4 @@ files.my_fun3()
 files.my_fun4()
 files.my_fun5()
 files.my_fun6()
+files.my_fun7()
