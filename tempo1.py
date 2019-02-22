@@ -1,7 +1,45 @@
 """
+
+Find solutions for folloing problem statement using class, List, Dict, tuples and sets.
+
+
+ 1. what is the name of the person ?
+
+
+2. is the person is male or female ?
+
+
+ 3. what is their father name ?
+
+
+ 4. what is his/her grandfather name (paternal/maternal) ?
+
+
+ 5. what is his/her aunt name ?
+
+
+ 6. how many number of siblings are there and name them ?
+
+
+7. how many number of nephews and name them ?
+
+
+8. how many children does your grandfather has and name them ?
+
+
+ 9. Information of the particular person
+
+
+
+"""
+
+
+
+"""
 creating a relationship using  data  like father mothe r etc and also creating ralationship with other file data using  moodules
 
 """
+
 
 
 import tempo2
@@ -41,7 +79,7 @@ class Me:
         here we are  calling the  name of the  person
         :return:
         """
-        return self.profile().get('name','NA')
+        return self.profile().get('name','none')
 
     def father_name(self):
         """
@@ -49,8 +87,8 @@ class Me:
         :return:
         """
 
-        fid = self.profile().get('fid','na')
-        return p1.get(fid,{}).get('name','na')
+        fid = self.profile().get('fid','none')
+        return p1.get(fid,{}).get('name','none')
     def mother_name(self):
         """
 
@@ -58,17 +96,17 @@ class Me:
         :return:
         """
 
-        mid = self.profile().get('mid','na')
-        return p1.get(mid,{}).get('name','na')
+        mid = self.profile().get('mid','none')
+        return p1.get(mid,{}).get('name','none')
 
     def grandfather_name(self):
         """
         calling the grand father name based on the limited information
 
         """
-        fid = self.profile().get('fid','na')
-        gf = p1.get(fid,{}).get('fid','na')
-        return p1.get(gf,{}).get('name','na')
+        fid = self.profile().get('fid','none')
+        gf = p1.get(fid,{}).get('fid','none')
+        return p1.get(gf,{}).get('name','none')
 
     def grandmother_name(self):
 
@@ -78,9 +116,9 @@ class Me:
         :return:
         """
 
-        fid = self.profile().get('fid','na')
-        gm = p1.get(fid,{}).get('mid','na')
-        return p1.get(gm,{}).get('name','na')
+        fid = self.profile().get('fid','none')
+        gm = p1.get(fid,{}).get('mid','none')
+        return p1.get(gm,{}).get('name','none')
 
     def brother_name(self):
         """
@@ -88,15 +126,15 @@ class Me:
         calling brother name based  on the father name if of the persond is  equal to fid  the he should be brother of the person uid
         :return:
         """
-        fid = self.profile().get('fid','na')
+        fid = self.profile().get('fid','none')
 
         l =[]
         if fid !='none':
             for i in p1:
-                if i != self.id and p1.get(i).get('fid','na') == fid:
+                if i != self.id and p1.get(i).get('fid','none') == fid:
 
-                     l . append(p1.get(i).get('name','na'))
-            return( f'number of brothers  {len(l)}  they  are {l} ')
+                     l . append(p1.get(i).get('name','none'))
+            return( f'number of brothers  {len(l)}  they  are {(",".join(l))} ')
 
 
 
@@ -106,13 +144,13 @@ class Me:
         calling  sister name based on father id
         :return:
         """
-        fid = self.profile().get('fid', 'na')
+        fid = self.profile().get('fid', 'none')
         if fid != 'none':
             for i in p1:
                 if i != self.id:
-                    if p1.get(i).get('fid', 'na') == fid and p1.get(i).get('gender', 'na')== 'female':
+                    if p1.get(i).get('fid', 'none') == fid and p1.get(i).get('gender', 'none')== 'female':
 
-                        return p1.get(i).get('name', 'na')
+                        return p1.get(i).get('name', 'none')
 
     def aunt_name(self):
 
@@ -122,20 +160,20 @@ class Me:
         :return:
         """
 
-        fid = self.profile().get('fid','na')
+        fid = self.profile().get('fid','none')
 
         if fid!='none':
-            gf = p1.get(fid,{}).get('fid','na')
+            gf = p1.get(fid,{}).get('fid','none')
         else :
             gf ='none'
 
         if gf!='none':
             for  i in p1:
-                if p1.get(i).get('fid','na') == gf and  p1.get(i).get('gender','na')== 'female':
+                if p1.get(i).get('fid','none') == gf and  p1.get(i).get('gender','none')== 'female':
 
 
 
-                    return p1.get(i).get('name','na')
+                    return p1.get(i).get('name','none')
 
     def childrens(self):
 
@@ -147,9 +185,13 @@ class Me:
         l = []
 
         for i in p1:
-            if p1.get(i).get('fid', 'na') == self.id:
-                l.append(p1.get(i).get('name', 'na'))
-        return (f'number of childrens  {len(l)}  they  are {l} ')
+            if p1.get(i).get('fid', 'none') == self.id:
+                l.append(p1.get(i).get('name', 'none'))
+            elif  p1.get(i).get('mid', 'none') == self.id:
+                l.append(p1.get(i).get('name', 'none'))
+
+
+        return (f'number of childrens  {len(l)}  they  are {(",".join(l))} ')
 
 
 
@@ -161,21 +203,24 @@ class Me:
 
         l = []
         for i in p1:
-            if p1.get(i).get('fid', 'none')==self.id:
+            if p1.get(i,{}).get('fid', 'none')==self.id:
                 for a in p1:
-                    if p1.get(a).get('fid', 'none') == i:
-                        l.append(p1.get(a).get("name", "na"))
+                    if p1.get(a,{}).get('fid', 'none') == i:
+                        l.append(p1.get(a,{}).get("name", "none"))
                 return(f'grand children {len(l)} they are {l}')
 
     def uncle(self):
-        mid = self.profile().get('mid', 'na')
-
-        k = tempo2.p2.get(mid,{}).get('fid')
+        mid = self.profile().get('mid', 'none')
+        if mid!='none':
+            k = tempo2.p2.get(mid,{}).get('fid','none')
+        else :
+            k = 'none'
         l = []
-        for i in tempo2.p2:
-            if  tempo2.p2.get(i).get('fid') == k and tempo2.p2.get(i).get('gender','na')== 'male':
-                l.append(tempo2.p2.get(i).get("name"))
-        return(f'uncle  {len(l)} they are {l}')
+        if k!='none':
+            for i in tempo2.p2:
+                if  tempo2.p2.get(i,{}).get('fid','none') == k and tempo2.p2.get(i,{}).get('gender','none')== 'male':
+                    l.append(tempo2.p2.get(i,{}).get("name",'none'))
+            return(f'uncle  {len(l)} they are {(",".join(l))}')
 
         #if mid!='none':
          #   gf = tempo2.p2.get(mid,{}).get('fid','na')
@@ -188,7 +233,7 @@ class Me:
 #
  #                   return tempo2.p2.get(i).get('name','na')
 
-    def brother_inlaw(self):
+    def cosins(self):
         """
          persons mothers brother(uncle) son  called as brother in law
         first call mother id and her fid
@@ -197,35 +242,46 @@ class Me:
         with the help of id call person name who has it as fid
         :return:
         """
-        mid = self.profile().get('mid', 'na')
-
-        k = tempo2.p2.get(mid, {}).get('fid')
+        mid = self.profile().get('mid', 'none')
+        if mid!='none':
+            k = tempo2.p2.get(mid, {}).get('fid','none')
+        else:
+            k='none'
         l = []
-        for i in tempo2.p2:
-            if tempo2.p2.get(i,{}).get('fid','na') == k:
-                biw = tempo2.p2.get(i,{}).get('id')
-                for e in tempo2.p2:
-                    if tempo2.p2.get(e,{}).get('fid') == biw:
+        s = []
+        if k!='none':
+            for i in tempo2.p2:
+                if tempo2.p2.get(i,{}).get('fid','none') == k:
+                    biw = tempo2.p2.get(i,{}).get('id','none')
+                    for e in tempo2.p2:
+                        if tempo2.p2.get(e,{}).get('fid','none') == biw and tempo2.p2.get(e,{}).get('gender','none')=='male':
 
-                        return tempo2.p2.get(e,{}).get('name','na')
+                            l.append (tempo2.p2.get(e,{}).get("name","none"))
 
+                        elif tempo2.p2.get(e,{}).get('fid','none') == biw and tempo2.p2.get(e,{}).get('gender','none')=='female':
 
-
-
-
-
-
-
-
-
-
+                            s.append (tempo2.p2.get(e, {}).get("name", "none"))
+                    return (f'cosins : brother in law is {(",".join(l))} and sister in law is  {(",".join(s))}')
+        else :
+            return (f'cosins : no cosins')
 
 
 
 
 
 
-obj = Me(5)
+
+
+
+
+
+
+
+
+
+
+
+obj = Me(6)
 name = obj.get_name()
 father = obj.father_name()
 mother = obj.mother_name()
@@ -236,8 +292,9 @@ sister = obj.sister_name()
 aunt = obj.aunt_name()
 childrens = obj.childrens()
 grand_children = obj.grand_children()
-uncle = obj.uncle()
-brother_inlaw =obj.brother_inlaw()
+k=uncle = obj.uncle()
+
+cosins =obj.cosins()
 
 print(f'name : {name}')
 print (f'father : {father}')
@@ -250,7 +307,7 @@ print (f'aunt : {aunt}')
 print (f'childrens : {childrens}')
 print (f'grand childrens :{grand_children}')
 print (f'uncle : {uncle}')
-print (f'brother_inlaw : {brother_inlaw}')
+print (cosins)
 
 
 
