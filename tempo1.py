@@ -158,7 +158,7 @@ class Me:
                 any of the person son and his son beomes grand son
                 :return: childrens
          """
-        
+
         l = []
         for i in p1:
             if p1.get(i).get('fid', 'none')==self.id:
@@ -188,6 +188,26 @@ class Me:
 #
  #                   return tempo2.p2.get(i).get('name','na')
 
+    def brother_inlaw(self):
+        """
+         persons mothers brother(uncle) son  called as brother in law
+        first call mother id and her fid
+        second compair above fid  with other person who has it
+        third if above fid is equal  call the id who met with mothers fid
+        with the help of id call person name who has it as fid
+        :return:
+        """
+        mid = self.profile().get('mid', 'na')
+
+        k = tempo2.p2.get(mid, {}).get('fid')
+        l = []
+        for i in tempo2.p2:
+            if tempo2.p2.get(i,{}).get('fid','na') == k:
+                biw = tempo2.p2.get(i,{}).get('id')
+                for e in tempo2.p2:
+                    if tempo2.p2.get(e,{}).get('fid') == biw:
+
+                        return tempo2.p2.get(e,{}).get('name','na')
 
 
 
@@ -201,7 +221,11 @@ class Me:
 
 
 
-obj = Me(1)
+
+
+
+
+obj = Me(5)
 name = obj.get_name()
 father = obj.father_name()
 mother = obj.mother_name()
@@ -213,6 +237,7 @@ aunt = obj.aunt_name()
 childrens = obj.childrens()
 grand_children = obj.grand_children()
 uncle = obj.uncle()
+brother_inlaw =obj.brother_inlaw()
 
 print(f'name : {name}')
 print (f'father : {father}')
@@ -225,7 +250,7 @@ print (f'aunt : {aunt}')
 print (f'childrens : {childrens}')
 print (f'grand childrens :{grand_children}')
 print (f'uncle : {uncle}')
-
+print (f'brother_inlaw : {brother_inlaw}')
 
 
 
