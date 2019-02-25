@@ -1,3 +1,7 @@
+"""
+importing other file program  in this program to acess the data from other file 
+"""
+
 import mymodule
 class  instance:
     def __init__(self, age):
