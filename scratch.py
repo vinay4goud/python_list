@@ -83,13 +83,38 @@ class files:
 
         f.write("\n great to see you ")
 
-        print(f.read())
+        f = open(self.file, self.m)
 
-        f.close ()
+        a = f.read()
 
+        return a
 
+        f.close()
 
+    def _readlist(self):
+        """
+        reading tbe file with out read module
+        :return: reading file
+        """
+        f = open(self.file)
+        return list(f)
 
+    #f = open(self.file)
+    #l = list(f)
+    #return l  # reading complete file
+        f.close()
+
+    def _withread(self):
+
+        """
+        reading file without  r mode by reducing ram memory in reading file  and it helps to read large files
+        :return: reads large files
+        """
+        with open(self.file) as f:  # closes file after all the lines have been processed
+
+            for line in f:  # not using readlines(), as this consumes the memory
+
+                print (line)
 
 
 obj = files("txt.txt", "r")
@@ -98,9 +123,14 @@ e = files("txt.txt","r+")
 f = files("lage.txt","w+")
 g = files("large.txt", "a")
 h = files("large.txt", "a+")
+i = files("large.txt","r")
+j = files("large.txt", "r")
+
 print(obj._read())
-print (d._write())
+print (d._write(),)
 print (e._read_write())
 print (f._read__write)
 print (g._append())
 print (h._appendplus())
+print (i._readlist())
+print (j._withread())
