@@ -1,44 +1,46 @@
 """
-JSON is a syntax for storing and exchanging data.
+JSON is a syntax for exchanging data.
 
-it has methods to convert sting format file data type as  well as data type to string format
+it has methods to convert sting to data  as  well as data  to string
 
 
 """
 
 import json  # importing json
 
-d = '{"a":"vinay", "b":40}'  # string value
-e = {"a": "navin", "c": 45}  # data type value
+# string
+d = '{"a":"vinay", "b":40}'
+
+# dictionary
+e = {"a": "navin", "c": 45}
 
 
 class Json:
     # b = '{"a":"vinay", "b":40}'
 
-    """
-    calling the value
-    """
-
     def __init__(self, a):
+        """
+           taking value
+            """
         self.a = a
 
         # self.y = y
 
     def loads(self):
         """
-        writing function to convert string to data type
-        :return: data type value
+          convert string to data
+        :return: data , json value
         """
         # z = self.a
         h = json.loads(self.a)
-        f = json.loads(self.a)
+        # f = json.loads(self.a)
         # print(h)
         return h
 
     def dump_(self):
         """
-        writing function to convert data type value to  string value
-        :return: string 
+        convert data to string, json value
+        :return: string, json value
         """
 
         h = json.dumps(self.a)
