@@ -46,7 +46,7 @@ class Json:
         h = json.dumps(self.a)
         return h
 
-
+u = type(e)
 z = Json(d)
 zz = Json(e)
 
@@ -56,6 +56,20 @@ print(f'reads  sing value of file : {k["a"]}')
 
 p = zz.dump_()
 print(f'reading  complete value of the file {p}')
+
+
+#q = zz.loads()
+
+#print(q,'none')
+
+if u == str:
+    print(f'{zz.loads()}')
+else:
+    print('wrong data  entered')
+
+
+
+
 # print (f'reading  single value  of file {p}')
 
 # zz = z._loads()
