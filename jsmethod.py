@@ -29,7 +29,7 @@ class Json:
     def loads(self):
         """
           convert string to data
-        :return: data , json value
+        :return: data , json data
         """
         # z = self.a
         h = json.loads(self.a)
@@ -40,7 +40,7 @@ class Json:
     def dump_(self):
         """
         convert data to string, json value
-        :return: string, json value
+        :return: string, json string
         """
 
         h = json.dumps(self.a)
@@ -62,6 +62,9 @@ print(f'reading  complete value of the file {p}')
 
 #print(q,'none')
 
+"""
+below if statement is for to check if the data is string execute if not shows wrong data entered  
+"""
 if u == str:
     print(f'{zz.loads()}')
 else:
