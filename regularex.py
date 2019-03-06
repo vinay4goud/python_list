@@ -42,29 +42,47 @@ class expresions:
 
             # extract date from read line
             date = re.findall("\d{2}/\d{2}/\d{2}|\d{1}/\d{2}/\d{2}",i)
+
             # # extract time from read line
             time = re.findall("\d{1}:\d{2} am| \d{2}:\d{2} am |\d{1}:\d{2} pm |\d{2}:\d{2} pm", i)
-            # spliting line two
-            match = re.split("\-", i)
-            #  picking  name and content from list
-            smatch = match[1]
-            # split name and content into two values
-            divideinfo = re.split("\:", smatch)
 
-            # assining  date , time , name and  content to variable
-            dict_chat_info = "".join(date) , "".join(time) , divideinfo[0], divideinfo[1]
+            if date:
 
-            # empty dictionary
-            information_data = {}
+                # spliting line two
+                match = re.split("\-", i)
 
 
-            # aadding values to empty  dictionary
-            information_data['date'] = dict_chat_info[0]
-            information_data['time'] = dict_chat_info[1]
-            information_data['name'] = dict_chat_info[2]
-            information_data['content'] = dict_chat_info[3]
-            # print dictionary
-            print ( information_data)
+                #  picking  name and content from list
+                smatch = match[1]
+
+                # split name and content into two values
+                divideinfo = re.split("\:", smatch)
+
+                # assining  date , time , name and  content to variable
+                dict_chat_info = "".join(date) , "".join(time) , divideinfo[0], divideinfo[1]
+
+                # empty dictionary
+                information_data = {}
+
+
+
+                # aadding values to empty  dictionary
+                information_data['date'] = dict_chat_info[0]
+
+                information_data['time'] = dict_chat_info[1]
+
+                information_data['name'] = dict_chat_info[2]
+
+                information_data['content'] = dict_chat_info[3]
+
+                # print dictionary
+                print ( information_data)
+        """
+        else :
+            return information_data
+            information_data['content'] = information_data.get('content') + self.readfile()
+
+            print(information_data)"""
 
 
 
@@ -80,7 +98,7 @@ class expresions:
         information_data['content'] = self.dataf()[3]
 
         return information_data  """
-# passing  value to
+# passing  value
 wfile = expresions("Chat with.txt")
 
 dataf = wfile.dataf()
