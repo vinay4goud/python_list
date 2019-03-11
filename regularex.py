@@ -1,17 +1,17 @@
 """
 reading a file , extracting date , name and content from the file
 """
-#importing regular expression  to execute the string as per requirment
+# importing regular expression  to execute the string as per requirment
 import re
 
-#Classes provide a means of bundling data and functionality together
+
+# Classes provide a means of bundling data and functionality together
 class expresions:
 
-
-    #function to assign values
+    # function to assign values
     def __init__(self, filesinfo):
 
-        self.fi= filesinfo
+        self.fi = filesinfo
 
     # function to read the file lines by line
     def readfile(self):
@@ -28,8 +28,6 @@ class expresions:
 
         return reading
 
-
-
     # function to extract required info from  lines in a file
     def dataf(self):
 
@@ -38,19 +36,24 @@ class expresions:
         :return: date , time and name  and content from file
         """
 
+        # empty dictionary
+        information_data = {}
+
         for i in self.readfile():  # read line by line by  looping
 
             # extract date from read line
-            date = re.findall("\d{2}/\d{2}/\d{2}|\d{1}/\d{2}/\d{2}",i)
+            date = re.findall("\d{2}/\d{2}/\d{2}|\d{1}/\d{2}/\d{2}", i)
 
             # # extract time from read line
             time = re.findall("\d{1}:\d{2} am| \d{2}:\d{2} am |\d{1}:\d{2} pm |\d{2}:\d{2} pm", i)
+
+            # if date not in self.readfile():
+            #    print (i)
 
             if date:
 
                 # spliting line two
                 match = re.split("\-", i)
-
 
                 #  picking  name and content from list
                 smatch = match[1]
@@ -59,12 +62,7 @@ class expresions:
                 divideinfo = re.split("\:", smatch)
 
                 # assining  date , time , name and  content to variable
-                dict_chat_info = "".join(date) , "".join(time) , divideinfo[0], divideinfo[1]
-
-                # empty dictionary
-                information_data = {}
-
-
+                dict_chat_info = "".join(date), "".join(time), divideinfo[0], divideinfo[1]
 
                 # aadding values to empty  dictionary
                 information_data['date'] = dict_chat_info[0]
@@ -75,16 +73,22 @@ class expresions:
 
                 information_data['content'] = dict_chat_info[3]
 
-                # print dictionary
-                print ( information_data)
+                # print file in dictionary
+                print(information_data)
+
+
+            elif date not in self.readfile():
+                z = information_data
+
+                information_data['content'] = information_data.get('content') + i
+            # print (information_data)
+
         """
         else :
             return information_data
             information_data['content'] = information_data.get('content') + self.readfile()
 
             print(information_data)"""
-
-
 
     """
     def extractinformation(self):
@@ -98,12 +102,14 @@ class expresions:
         information_data['content'] = self.dataf()[3]
 
         return information_data  """
+
+
 # passing  value
 wfile = expresions("Chat with.txt")
 
 dataf = wfile.dataf()
 
 print(dataf)
-#infrom = wfile.extractinformation()
+# infrom = wfile.extractinformation()
 
-#print (f'{infrom}')
+# print (f'{infrom}')
