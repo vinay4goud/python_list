@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+
+
+<form method="post">
+    {{error}}
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="Username" autocomplete="off" required="required" />
+    <input type="password" name="psw" placeholder="Password" required="required">
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>
